@@ -1,7 +1,7 @@
 <?php
 namespace TSPortfolio;
 
-class Elementor_Render extends Frontend_RenderBase {
+class Elementor_Render extends Frontend_RenderBase  {
     public function __construct() {
         // Elementor widget initialization
     }

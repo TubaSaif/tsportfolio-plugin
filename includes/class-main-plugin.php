@@ -33,9 +33,26 @@ class Main_Plugin {
     private function register_hooks() {
         // Hook for initializing the plugin's functionality
         add_action('init', [$this, 'init_plugin']);
+
+        // Add the template_include filter
+        add_filter('template_include', [$this, 'custom_template']);
     }
 
     public function init_plugin() {
         // Initialize plugin logic
+    }
+
+    public function custom_template($template) {
+        // Check if we're viewing a single post of the custom post type 'ts_portfolio_project'
+        if (is_singular('ts_portfolio_project')) {
+            // Path to your custom template file
+            $custom_template = plugin_dir_path(__FILE__) . '../templates/single-ts_portfolio_project.php'; // Adjust path if necessary
+            
+            // Check if the custom template file exists
+            if (file_exists($custom_template)) {
+                return $custom_template; // Use the custom template
+            }
+        }
+        return $template; // Return the default template if not
     }
 }
