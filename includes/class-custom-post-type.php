@@ -17,7 +17,7 @@ class Custom_Post_Type {
     public function register_custom_post_type() {
         register_post_type('ts_portfolio_project', [
             'labels' => [
-                'name' => __('Projects', 'ts-portfolio'),
+                'name' => __('My_Projects', 'ts-portfolio'),
                 'singular_name' => __('Project', 'ts-portfolio')
             ],
             'public' => true,

@@ -8,6 +8,10 @@ get_header(); // Include the header
 // Start the Loop
 if (have_posts()) :
     while (have_posts()) : the_post(); ?>
+     <!-- Embed Elementor Section (replace 123 with your Elementor Page ID) -->
+     <div class="elementor-section">
+            <?php echo \Elementor\Plugin::instance()->frontend->get_builder_content( 165); ?>
+        </div>
         <div class="project-container">
             <h1><?php the_title(); ?></h1>
             <div class="project-content">
@@ -15,7 +19,7 @@ if (have_posts()) :
             </div>
             
             <div class="project-meta">
-                <h2><?php _e('Project Details', 'ts-portfolio'); ?></h2>
+                <h2><?php _e('Project Detafsdils', 'ts-portfolio'); ?></h2>
 
                 <?php
                 // Retrieve custom meta data
