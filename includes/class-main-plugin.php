@@ -3,6 +3,8 @@ namespace TSPortfolio;
 
 use TSPortfolio\Custom_Post_Type;
 use TSPortfolio\Shortcode_Render;
+use TSPortfolio\Metabox;
+use TSPortfolio\Enqueue;
 
 class Main_Plugin {
     private static $instance;
@@ -24,6 +26,9 @@ class Main_Plugin {
         // Initialize all custom post types and frontend renders
         new Custom_Post_Type();
         new Shortcode_Render();
+        new Metabox();
+        new Enqueue();
+
     }
 
     private function register_hooks() {
@@ -32,6 +37,14 @@ class Main_Plugin {
 
         // Add the template_include filter
         add_filter('template_include', [$this, 'custom_template']);
+
+        
+        function ts_portfolio_enqueue_admin_scripts() {
+            wp_enqueue_media(); // Enqueue media uploader scripts
+            wp_enqueue_script('ts-portfolio-metabox', plugin_dir_url(__FILE__) . 'assest/js/admin/metabox.js', ['jquery'], '1.0', true);
+        add_action('admin_enqueue_scripts', 'ts_portfolio_enqueue_admin_scripts');
+}
+
     }
 
     public function init_plugin() {

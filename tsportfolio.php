@@ -13,7 +13,8 @@ defined('ABSPATH') || exit;
 spl_autoload_register(function ($class) {
     // Define the plugin's namespace
     $prefix = 'TSPortfolio\\';
-    // Base directory for class files
+    
+    // Base directory for class files (assuming 'includes' is your main directory for classes)
     $base_dir = __DIR__ . '/includes/';
 
     // Check if the class belongs to the plugin's namespace
@@ -26,24 +27,55 @@ spl_autoload_register(function ($class) {
     // Get the relative class name (strip the namespace prefix)
     $relative_class = substr($class, $len);
 
-    // Convert namespace separators to directory separators and lowercase the class
+    // Convert namespace separators to directory separators
+    // Keeping the file names case-sensitive but class names lowercased
     $relative_class = str_replace('\\', '/', strtolower($relative_class));
 
-    // Construct the file path for class files in the includes directory
+    // Construct the file path for class files
+    // For 'includes' directory
     $file = $base_dir . 'class-' . str_replace('_', '-', $relative_class) . '.php';
 
-    // Check if the file exists in the root includes directory
+    // Check if the class exists in the 'includes' directory
     if (file_exists($file)) {
         require_once $file;
-    } else {
-        // Check if the file exists in the frontend subdirectory
-        $frontend_dir = $base_dir . 'frontend/';
-        $frontend_file = $frontend_dir . 'class-' . str_replace('_', '-', $relative_class) . '.php';
-        if (file_exists($frontend_file)) {
-            require_once $frontend_file;
-        }
+        return;
     }
+
+    // Check if the class exists in the 'admin' subdirectory inside 'includes'
+    $admin_dir = $base_dir . 'admin/';
+    $admin_file = $admin_dir . 'class-' . str_replace('_', '-', $relative_class) . '.php';
+    if (file_exists($admin_file)) {
+        require_once $admin_file;
+        return;
+    }
+
+    // Check if the class exists in the 'frontend' subdirectory inside 'includes'
+    $frontend_dir = $base_dir . 'frontend/';
+    $frontend_file = $frontend_dir . 'class-' . str_replace('_', '-', $relative_class) . '.php';
+    if (file_exists($frontend_file)) {
+        require_once $frontend_file;
+        return;
+    }
+
+    // Check if the class exists in the 'metabox' subdirectory inside 'admin'
+    $metabox_dir = $admin_dir . 'metabox/';
+    $metabox_file = $metabox_dir . 'class-' . str_replace('_', '-', $relative_class) . '.php';
+    if (file_exists($metabox_file)) {
+        require_once $metabox_file;
+        return;
+    }
+
+    // Check if the class exists in the 'settings' subdirectory inside 'admin'
+    $settings_dir = $admin_dir . 'settings/';
+    $settings_file = $settings_dir . 'class-' . str_replace('_', '-', $relative_class) . '.php';
+    if (file_exists($settings_file)) {
+        require_once $settings_file;
+        return;
+    }
+
+    // If the file wasn't found in any directory, do nothing (class will not be autoloaded)
 });
+
 
 
 
