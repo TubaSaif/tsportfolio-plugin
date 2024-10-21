@@ -10,7 +10,7 @@ class Enqueue {
 
     // Enqueue frontend styles and scripts
     public function enqueue_frontend_assets() {
-       // wp_enqueue_style( 'tsportfolio-frontend-css', plugin_dir_url( __FILE__ ) . '../assest/css/frontend/style.css', array(), '1.0.0', 'all' );
+        wp_enqueue_style( 'tsportfolio-frontend-css', plugin_dir_url( __FILE__ ) . '../assest/css/frontend/front-style.css', array(), '1.0.0', 'all' );
        // wp_enqueue_script( 'tsportfolio-frontend-js', plugin_dir_url( __FILE__ ) . '../assest/js/frontend/frontend.js', array('jquery'), '1.0.0', true );
     }
 

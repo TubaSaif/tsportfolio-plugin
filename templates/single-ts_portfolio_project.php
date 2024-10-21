@@ -8,12 +8,9 @@ get_header(); // Include the header
 // Start the Loop
 if (have_posts()) :
     while (have_posts()) : the_post(); ?>
-     <!-- Embed Elementor Section (replace 123 with your Elementor Page ID) -->
-     <div class="elementor-section">
-            <?php echo \Elementor\Plugin::instance()->frontend->get_builder_content( 165); ?>
-        </div>
+    <div class=main-container>  
         <div class="project-container">
-            <h1><?php the_title(); ?></h1>
+        <h1 class="custom-title">Project: <?php the_title(); ?></h1>
             <div class="project-content">
                 <?php the_content(); // Display the main content of the project ?>
             </div>
@@ -60,6 +57,7 @@ if (have_posts()) :
                 ?>
             </div>
         </div>
+    </div>
     <?php endwhile;
 else :
     echo '<p>' . __('No project found', 'ts-portfolio') . '</p>';
