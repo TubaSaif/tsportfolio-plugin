@@ -7,16 +7,16 @@
     gap: 20px; /* Space between cards */
     justify-content: center; /* Center the cards in the container */
     padding: 20px;
-    background-color: #f9f9f9; /* Light background for the whole section */
+    background-color: #ffffff; /* Light background for the whole section */
 }
 
 /* Each individual card */
 .portfolio-project-card {
     background-color: #fff;
-    border-radius: 10px; /* Rounded corners for the card */
+    border-radius: 5px; /* Rounded corners for the card */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for a floating effect */
     overflow: hidden; /* Ensure content doesn't overflow the card */
-    width: 300px; /* Fixed width for all cards */
+    width: 400px; /* Fixed width for all cards */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
 }
 
@@ -54,18 +54,17 @@
 
 /* Project title styling */
 .portfolio-project-heading h2 {
-    font-size: 1.5rem;
     margin-bottom: 5px;
-    padding: 5%;
-    color: #2c7d44;
+    padding: 5px;
+    color: #44745B;
     font-weight: bold;
     text-decoration: none;
+    text-align: center;
 }
 .portfolio-project-heading h2 a {
-    font-size: 1rem;
+    font-size: 1.5rem;
     margin-bottom: 5px;
-    padding: 5%;
-    color: #2c7d44;
+    color: #44745B;
     font-weight: bold;
     text-decoration: none;
     text-transform: uppercase;
@@ -74,16 +73,29 @@
 .main-container{
     background-color: #44745B;
     margin:0px;
-    padding:5px;
+    padding:0px;
 }
 .project-container{
-    margin:5px;
+    margin:0px;
     background-color: rgb(247, 247, 247);
-    padding:24px;
+    padding:60px;
+}
+.project-title{
+    background-color: #44745B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:125px;
 }
 .custom-title{
-    color:#44745B;
-    font-family: 'Courier New', Courier, monospace;
+    color:#ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 55px;
+    text-transform: lowercase;
+    text-align: center;
+    margin: 1px;
+    padding:1px;
+    font-weight: 900;
 }
 .portfolio-project-image {
     /* Define a container with fixed aspect ratio (maintain proportions) */
@@ -102,4 +114,8 @@
     object-fit: cover; /* Ensure the image covers the entire area without distortion */
     object-position: center; /* Center the image in case it's larger */
 }
-
+@media (max-width: 600px) {
+    .custom-title {
+        font-size: 30px; /* Adjust the size as needed */
+    }
+}
