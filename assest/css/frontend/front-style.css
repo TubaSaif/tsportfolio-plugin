@@ -117,5 +117,101 @@
 @media (max-width: 600px) {
     .custom-title {
         font-size: 30px; /* Adjust the size as needed */
+        padding:2px;
+        margin:2px;
+    }
+}
+@media (max-width: 800px) {
+    .project-container{
+        margin:3px;
+        background-color: rgb(247, 247, 247);
+        padding:7px;
+    }
+}
+@media (max-width: 600px) {
+    .project-title{
+        background-color: #44745B;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding:120px 12px 120px 12px;
+    }
+}
+
+
+/* ================================ PAGINATION =======================*/
+.single-post-pagination{
+    display: flex;
+    justify-content:space-between;
+}
+.post-nav {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+}
+.post-nav a{
+    text-decoration: none;
+}
+
+.prev-post .item-content, .next-post .item-content {
+    display: flex;
+    align-items: center;
+    flex-direction: row; /* Align items in a row */
+    color: #44745B;
+}
+
+.prev-post .post-image {
+    order: -1; /* Position image to the left for previous post */
+}
+
+.next-post .item-content {
+    justify-content: flex-end;
+}
+
+.next-post .post-image {
+    order: 1; /* Position image to the right for next post */
+}
+
+.post-image img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Round image */
+    margin: 0 10px;
+    border: 3px solid #44745B;
+}
+
+.item-label {
+    font-weight: bold;
+}
+
+.item-title {
+    display: block;
+    font-size: 14px;
+    margin-top: 5px;
+}
+.half-item-content{
+    display:flex;
+    flex-direction: column;
+    text-decoration: none;
+}
+.next{
+    text-align: right;
+}
+.prev{
+    text-align:left;
+}
+.mobile-arrow{
+    display:none;
+}
+/* Show mobile arrows on screens less than 768px */
+@media (max-width: 568px) {
+    .prev, .next {
+        display: none; /* Hide on mobile */
+    }
+
+    .mobile-arrow {
+        display: block; /* Show the mobile arrows */
+        font-size: 24px; /* Adjust size as needed */
+        text-align: center; /* Center alignment */
     }
 }
